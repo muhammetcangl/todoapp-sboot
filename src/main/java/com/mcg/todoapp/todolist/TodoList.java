@@ -28,16 +28,9 @@ public class TodoList {
     @JsonIgnore
     private List<TodoItem> todoItems = new ArrayList<>();
 
-    @Transient
-    @JsonIgnore
-    private transient List<TodoItem> sortedTodoItems = new ArrayList<>();
-
     @OneToOne
     @JoinColumn(name = "owner_user_id")
     @JsonIgnore
     private User owner; // listeler kullanicilara bagli
 
-//    public TodoList(){
-//        this.todoItems = new ArrayList<>();
-//    }
 }

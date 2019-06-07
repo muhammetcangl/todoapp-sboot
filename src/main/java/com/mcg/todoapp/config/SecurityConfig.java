@@ -75,6 +75,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .cors()
+                .and()
                 .csrf()
                 .disable()
                 .exceptionHandling()
@@ -113,7 +115,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new WebMvcConfigurer() {
             @Override
             public void addCorsMappings(CorsRegistry registry) {
-                registry.addMapping("/**").allowedOrigins("http://localhost:4000").allowCredentials(true);
+                registry.addMapping("/**").allowedOrigins("http://localhost:4000").allowedMethods("GET","POST","DELETE","PUT").allowCredentials(true);
             }
         };
     }

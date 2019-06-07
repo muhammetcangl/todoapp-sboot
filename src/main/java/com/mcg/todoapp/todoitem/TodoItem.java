@@ -24,16 +24,13 @@ public class TodoItem {
     @Column(name = "description")
     private String description;
 
-    @Column(name = "completed")
-    private Boolean completed;
-
-    @Column(name = "deleted")
-    private Boolean deleted;
+    @Column(name = "done")
+    private Boolean done;
 
     @OneToOne
-    @JoinColumn(name = "prev_todo_item")
+    @JoinColumn(name = "depndnt_todo_item")
     @JsonIgnore
-    private TodoItem prevTodoItem;
+    private TodoItem depndntTodoItem;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "todo_list_id")
